@@ -1,0 +1,83 @@
+import pandas as pd
+import numpy as np
+from sklearn import preprocessing
+from sklearn model_selection import train_test_split
+from sklearn preprocessing import OrdinalEncoder
+from sklearn.metrics import classification_report
+from sklearn.metrics import confusion_matrix
+from sklearn. feature_selection import RFE
+
+from sklearn. linear_model import LogisticRegression
+
+import statsmodels.api as sm 
+import matplotlib
+import matplotlib.pyplot as plt 
+import seaborn as sns
+
+df =pd. read_csv( C: |\Users||Public||Desktop\\Dat-430\\HR Attrition Data.csv')
+df. head(8)
+df. info()
+
+y = y.to_frame ()
+y.head (8)
+y=y.astype('str')
+
+ord_enc = OrdinalEncoder()
+x["BusinessTravel"] = ord_enc.fit_transform(x[["BusinessTravel"]])
+x["Department"] = ord_enc. fit_transform(×[[ "Department" 1])
+×["Gender"] = ord_enc.fit_transform(x[["Gender"]])
+×["OverTime"] = ord_enc.fit_transform(x[["OverTime"]])
+×["Maritalstatus"] = ord_enc.fit_transform(x[["MaritalStatus"]])
+x["Over18"] = ord_enc.fit_transform(x[["Over18"]])
+×["EducationField"] = ord_enc.fit_transform(x[["EducationField"]])
+×["JobRole"] = ord_enc.fit_transform(x[["JobRole"]])
+
+x.info()
+
+x_train, x_test, y_train, y_test = train_test_split(x,y, test_size=0.2, random_state=123)
+
+from sklearn. ensemble import RandomForestClassifier
+model = RandomForestClassifier()
+model.fit(x_train, y_train)
+model.score(x_test,y_test)
+
+df.Age.hist()
+plt.title('Histogram of Age')
+plt.xlabel('Age')
+plt.ylabel('Frequency')
+
+table=pd.crosstab(df.EducationField,df.Attrition)
+table.div(table.sum(1). astype(float),
+axis=0) plot (kind=' bar', stacked=True)
+
+plt.title('Stackedbar chart for EducationField Vs Attrition')
+plt.xlabel('Education Fields')
+plt.ylabel(' Compared to Attrition')
+
+table=pd.crosstab(af.JobRole,df.Attrition)
+table.div(table.sum(1). astype(float), axis=0). plot(kind='bar', stacked=True)
+plt.title('Stackedbar chart for Jobrole VS. Attrition')
+plt.xlabel('JobRole')
+plt.ylabel('Compared to Attrition')
+
+cr=classification_report(y_test, predictions)
+print(cr)
+
+predictions = model.predictest(x_test)
+cm=confusion_matrix(y_test, predictions)
+cm=pd.DataFrame (cm, columns=[1,2])
+print(cm)
+
+sns.heatmap(cm, annot=True)
+
+logreg = LogisticRegression()
+rfe = RFE(logreg, 15)
+rfe = rfe.fit(x_train, y_train.values.ravel())
+print(rfe.support_)
+print (rfe.ranking_)
+
+cols = ['MaritalStatus', 'Department','EnvironmentSatisfaction', "OverTime',
+'WorklifeBalance', 'YearsSinceLastPromotion', 'YearsWithCurrManager','StockOptionLevel', 'TrainingTimesLastYear'
+'JobSatisfaction', 'StandardHours', 'PerformanceRating']
+x=x[cols]
+x
