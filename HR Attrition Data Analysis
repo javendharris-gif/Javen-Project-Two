@@ -1,0 +1,34 @@
+import pandas as pd
+df=pd.concat(map(pd.read_csv, [r'C: \Users\Public\Desktop\DAT-430\HR Training Data.csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(1).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(2).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(3).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(4).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(5).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(6).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(7).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(8).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(9).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(10).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(11).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData(12).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData (13).csv',
+r'C:\Users\Public\Desktop\DAT-430\HRData (14).csv']),ignore_index=True)
+
+print(df)
+
+df.to_csv("U:\\HRDataMerged.csv")
+
+df.to_csv("U:\\HRDataMerged.csv")
+
+df dropna(subset=['Attrition'], inplace=True)
+df['Attrition']=df['Attrition'] map({'Yes':True,'No':False})
+df['BusinessTravel']=df['BusinessTravel'].map({'Non-Travel':0, 'Travel_Rarely':1, "Travel_Frequently':2})
+df['TrainingTimesLastYear']=df['TrainingTimesLastYear'].fillna(df['training'])
+
+df.corr() 
+
+df.drop(['Age', 'BusinessTravel', 'DailyRate', "JobLevel', "Relationshipsatisfaction', 'PercentSalaryHike', StockoptionLevel']
+df. corr ()
+
+df.to_sv("U: \\HRDataMergedComplete.csv")
