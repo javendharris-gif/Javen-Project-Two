@@ -1,0 +1,20 @@
+[install.packages("tframe");  
+
+install.packages("tfplot");  
+
+library("tframe");  
+
+library("tfplot");  
+
+setwd("C:/Users/Public/Desktop/DAT-375")  
+
+crimestormdataQ <- read.csv("crimeStormQ.csv")  
+
+print(crimestormdataQ)  
+
+crimenostormdataQ <- read.csv("crimenostormQ.csv") 
+
+z<-ts (cumsum(crimestormdataQ$Loss)/1000, start=c(2017,1), frequency=12) 
+
+ X<-ts (cumsum(crimenostormdataQ$Loss)/1000, start=c(2017,1), frequency=12 
+
