@@ -1,0 +1,5 @@
+SELECT * FROM dat.375.StormCrimes 
+
+WHERE CrimeEventID <>0 
+
+And StormEventID <>0; 
